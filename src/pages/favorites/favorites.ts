@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage,  ModalController, NavController, NavParams} from 'ionic-angular';
 import {Quote} from "../../data/quote.interface";
 import {QuotesService} from "../../services/quotes";
+import {SettingsService} from "../../services/setting";
 import {QuotePage} from "../quote/quote";
 
 /**
@@ -16,13 +17,13 @@ import {QuotePage} from "../quote/quote";
   templateUrl: 'favorites.html',
 })
 export class FavoritesPage {
-
   quotes: Quote[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public quoteService: QuotesService,
+    public settingsService: SettingsService,
     public modalCtrl: ModalController) {
 
   }
@@ -51,8 +52,15 @@ export class FavoritesPage {
   }
 
 
+  getBackground(){
+    return this.settingsService.isAltBackground() ? 'altQuoteBackground' : 'quoteBackground'
+
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');
+  }
+  isAltBackground() {
+    return this.settingsService.isAltBackground();
   }
 
 }

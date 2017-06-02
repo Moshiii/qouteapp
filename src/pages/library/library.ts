@@ -22,10 +22,6 @@ export class LibraryPage implements  OnInit {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LibraryPage');
-  }
-
   ngOnInit() {
     this.quoteCollection = quotes;
   }

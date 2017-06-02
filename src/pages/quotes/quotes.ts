@@ -55,9 +55,6 @@ export class QuotesPage implements OnInit {
     alert.present();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotesPage');
-  }
 
   onRemoveFromFavorites(quote: Quote) {
     this.quoteService.removeQuoteFromFavorites(quote);
